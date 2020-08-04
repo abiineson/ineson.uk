@@ -16,30 +16,6 @@ body {
 /* Style the header */
 .header {
   background-color:black;
-  padding: 20px;
-  text-align: center;
-}
-
-/* Style the top navigation bar */
-.topnav {
-  overflow: hidden;
-  background-color: #333;
-}
-
-/* Style the topnav links */
-.topnav a {
-  float: left;
-  display: block;
-  color: #f2f2f2;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-}
-
-/* Change color on hover */
-.topnav a:hover {
-  background-color:black;
-  color:darkgray
 }
 
 /* Create three equal columns that floats next to each other */
@@ -62,20 +38,41 @@ body {
     width: 100%;
   }
 }
-body {
-    background-color:black;
+.dropbtn {
+  background-color:black;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
 }
-h1{
-color:white;
-font-size: 35px;
-font-family:Arial;
+.dropdown {
+  padding-top: 10px;
+  float: left;
 }
-h2 {
-    font-size: 25px;
-    color: white;
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  overflow: auto;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
 }
-p {
-    color:lightgrey;
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.line {
+    width: 35px;
+    height: 5px;
+    background-color:white;
+    margin: 6px 0;
 }
 footer {
 color: white;
@@ -83,28 +80,63 @@ font-family: Courier;
 position: fixed;
   bottom: 0;
   width: 100%;
-  background-color: black;
-  color: white;
+  background-color: white;
+  color: black;
   text-align: right;
 }
 
+.dropdown a:hover {background-color: #ddd;}
 
+.show {display: block;}
 </style>
+
+<script>
+  /* When the user clicks on the button, 
+  toggle between hiding and showing the dropdown content */
+  function myFunction() {
+    document.getElementById("menu").classList.toggle("show");
+  }
+  
+  // Close the dropdown if the user clicks outside of it
+  window.onclick = function(event) {
+    if (!event.target.matches('.dropbtn')) {
+      var dropdowns = document.getElementsByClassName("dropdown-content");
+      var i;
+      for (i = 0; i < dropdowns.length; i++) {
+        var openDropdown = dropdowns[i];
+        if (openDropdown.classList.contains('show')) {
+          openDropdown.classList.remove('show');
+        }
+      }
+    }
+  }
+  
+</script>
 </head>
 <body>
 
 <div class="header">
-  <img src=logo.png </img>
-
-<div class="topnav">
-  <a href="index.html">Home</a>
-  <a href="aboutshaun.html">About</a>
+  <div class="dropdown">
+    <button onclick="myFunction()" class="dropbtn">
+      <div class="line"></div>
+      <div class="line"></div>
+      <div class="line"></div>
+    </button>
+    <div id="menu" class="dropdown-content">
+      <a href="index.html">Home</a>
+      <a href="aboutshaun.html">About</a>
+    </div>
+  </div>
+  <div class="logo">
+    <img src=logo.png></img>
+  </div>
 </div>
+
 <h1>About Ineson</h1> 
 <p>This can say anything</p>
 
 <footer>
-  <p>©2020 abi</p>
+<p>©2020 abiwebsites</p>
 </footer>
 </body>
 </html>
